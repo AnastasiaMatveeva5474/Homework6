@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 24px 16px;
+    font-family: Arial, sans-serif;
+    background-color: #f3efe8;
+    color: #222222;
+}
+
+.calc {
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 24px;
+    background-color: #ffffff;
+    border: 1px solid #cfc7b8;
+    border-radius: 8px;
+}
+
+h1 {
+    margin: 0 0 20px;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.field {
+    margin-bottom: 16px;
+}
+
+fieldset.field {
+    padding: 0;
+    border: none;
+}
+
+legend {
+    padding: 0;
+    margin-bottom: 6px;
+    font-size: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 15px;
+}
+
+label.inline {
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+select,
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #8a8272;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+select:focus,
+input:focus {
+    outline: 3px solid #2f6f5e;
+    outline-offset: 1px;
+}
+
+.error {
+    margin: 16px 0 0;
+    color: #b3261e;
+}
+
+.result {
+    margin: 16px 0 0;
+    font-size: 20px;
+    font-weight: bold;
+}

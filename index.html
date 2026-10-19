@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Калькулятор стоимости услуг печати</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 24px 16px;
+            font-family: Arial, sans-serif;
+            background-color: #f3efe8;
+            color: #222222;
+        }
+
+        .calc {
+            max-width: 440px;
+            margin: 0 auto;
+            padding: 24px;
+            background-color: #ffffff;
+            border: 1px solid #cfc7b8;
+            border-radius: 8px;
+        }
+
+        h1 {
+            margin: 0 0 20px;
+            font-family: Georgia, serif;
+            font-size: 24px;
+            font-weight: normal;
+        }
+
+        .field {
+            margin-bottom: 16px;
+        }
+
+        fieldset.field {
+            padding: 0;
+            border: none;
+        }
+
+        legend {
+            padding: 0;
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+
+        label.inline {
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+
+        select,
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #8a8272;
+            border-radius: 4px;
+            background-color: #ffffff;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 8px;
+        }
+
+        select:focus,
+        input:focus {
+            outline: 3px solid #2f6f5e;
+            outline-offset: 1px;
+        }
+
+        .error {
+            margin: 16px 0 0;
+            color: #b3261e;
+        }
+
+        .result {
+            margin: 16px 0 0;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+    <script src="calc.js" defer></script>
+</head>
+<body>
+    <main class="calc">
+        <h1>Калькулятор стоимости услуг печати</h1>
+
+        <form id="calc-form" novalidate>
+            <div class="field">
+                <label for="quantity">Количество, шт.</label>
+                <input
+                    type="text"
+                    id="quantity"
+                    name="quantity"
+                    value="1"
+                    inputmode="numeric"
+                    autocomplete="off"
+                    placeholder="Например, 3"
+                >
+            </div>
+
+            <fieldset class="field">
+                <legend>Тип услуги</legend>
+                <label class="inline">
+                    <input type="radio" name="service" value="cards" checked>
+                    Визитки — 15 ₽ за шт.
+                </label>
+                <label class="inline">
+                    <input type="radio" name="service" value="posters">
+                    Плакаты — 40 ₽ за шт.
+                </label>
+                <label class="inline">
+                    <input type="radio" name="service" value="brochures">
+                    Брошюры — 25 ₽ за шт.
+                </label>
+            </fieldset>
+
+            <div class="field" id="options-field" hidden>
+                <label for="option">Тип бумаги</label>
+                <select id="option" name="option">
+                    <option value="0">Матовая — +0 ₽</option>
+                    <option value="10">Глянцевая — +10 ₽</option>
+                    <option value="30">Холст — +30 ₽</option>
+                </select>
+            </div>
+
+            <div class="field" id="property-field" hidden>
+                <label class="inline">
+                    <input type="checkbox" id="property" name="property">
+                    Ламинация — +8 ₽ за шт.
+                </label>
+            </div>
+        </form>
+
+        <p id="error" class="error" role="alert"></p>
+        <p id="result" class="result" aria-live="polite"></p>
+    </main>
+</body>
+</html>
